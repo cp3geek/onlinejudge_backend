@@ -14,11 +14,11 @@ public class GlobalCorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowCredentials(true)//是否发送Cookie信息
-                        .allowedHeaders("*")//放行哪些原始域（头部信息）
-                        .allowedMethods("GET","POST","PUT","DELETE")//放行哪些原始域（请求方式）
-                        .allowedOrigins("*")
-                        .exposedHeaders("Header1","Header2");//暴露哪些头部信息（因为跨域访问默认不能获取全部头部信息）
+                        .allowCredentials(true)
+                        .allowedOriginPatterns("*")
+                        .allowedMethods("GET","HEAD","POST","PUT","DELETE","OPTIONS")
+                        .maxAge(3600)
+                        .allowedHeaders("*");
             }
         };
     }
