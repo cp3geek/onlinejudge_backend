@@ -1,2 +1,2 @@
 # onlinejudge_backend
-OJ后端
+OJ后端(springboot)
