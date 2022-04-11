@@ -9,22 +9,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class ProblemInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String userName;
-    private String nickName;
-    private String email;
-    private String userPassword;
-    private Date updateTime;
-    private Date createTime;
-    private byte userType;
+    private Long problemInfoId;
+    private Long problemId;
+    private int timeLimit;
+    private int memoryLimit;
+    private String level;
+    private String tags;
+    private int total;
+    private int AC;
+    private int radio;
 }
