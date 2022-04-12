@@ -20,11 +20,10 @@ public class ProblemInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long problemInfoId;
     private Long problemId;
-    private int timeLimit;
-    private int memoryLimit;
-    private String level;
-    private String tags;
-    private int total;
-    private int AC;
-    private int radio;
+    private int timeLimit;//时间限制
+    private int memoryLimit;//内存限制
+    private String level;//题目等级
+    private String tags;//题目标签
+    private int total;//提交总数
+    private int AC;//通过数
 }
