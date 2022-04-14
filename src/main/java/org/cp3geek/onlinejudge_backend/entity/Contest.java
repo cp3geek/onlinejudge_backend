@@ -1,6 +1,6 @@
 package org.cp3geek.onlinejudge_backend.entity;
 
-import com.vladmihalcea.hibernate.type.json.JsonStringType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
