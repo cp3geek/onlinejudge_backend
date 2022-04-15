@@ -9,21 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
-@Entity
 @Data
-@Builder
-@NoArgsConstructor
+@Entity
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+@Builder
+public class RoleAccess {
+    //角色权限连接表
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String userName;
-    private String nickName;
-    private String email;
-    private String userPassword;
-    private Date updateTime;
-    private Date createTime;
+    private Long roleAccessId;
+    private Long roleId;
+    private Long accessId;
 }

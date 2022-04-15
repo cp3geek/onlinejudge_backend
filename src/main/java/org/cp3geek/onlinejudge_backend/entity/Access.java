@@ -12,18 +12,17 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Data
 @Builder
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class Access {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String userName;
-    private String nickName;
-    private String email;
-    private String userPassword;
-    private Date updateTime;
+    private Long accessId;
+    private String accessName;
+    private String accessDescription;
     private Date createTime;
+    private Date updateTime;
+
 }

@@ -13,17 +13,15 @@ import java.util.Date;
 
 @Entity
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+@Builder
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String userName;
-    private String nickName;
-    private String email;
-    private String userPassword;
-    private Date updateTime;
+    private Long roleId;
+    private String roleName;//角色名称
+    private String roleDescription;//角色描述
     private Date createTime;
+    private Date updateTime;
 }
