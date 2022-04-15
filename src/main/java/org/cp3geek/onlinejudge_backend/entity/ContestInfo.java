@@ -14,11 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ConSignUpProblem {
+public class ContestInfo {
     //比赛报名人数和比赛题集表
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long conSignUpProblemId;
+    private Long contestInfoId;
     private Long contestId;
     @Convert(converter = JpaConverterListJson.class)
     private List<Integer> participants;//参与者
