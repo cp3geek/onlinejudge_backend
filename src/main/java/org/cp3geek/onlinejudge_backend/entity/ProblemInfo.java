@@ -25,5 +25,5 @@ public class ProblemInfo {
     private String level;//题目等级
     private String tags;//题目标签
     private int total;//提交总数
-    private int AC;//通过数
+    private int accepted;//通过数
 }

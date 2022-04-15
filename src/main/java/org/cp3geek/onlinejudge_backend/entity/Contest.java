@@ -29,8 +29,8 @@ public class Contest {
     private Date contestStartTime;//比赛开始时间
     private Date contestEndTime;//比赛结束时间
     private String contestHost;//举办者
-    private int problemNumber;//题目数量
 
+    
 
 
 }

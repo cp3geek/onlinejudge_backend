@@ -28,4 +28,6 @@ public class Problem {
     private String samples;//输入输出测试样例
     private Date updateTime;//题目更新时间
     private Date createTime;//题目创建时间
+    private int problemState;//题目是否为当前正在进行的比赛中的题目
+    // 1代表是.则在题库中不显示。
 }
