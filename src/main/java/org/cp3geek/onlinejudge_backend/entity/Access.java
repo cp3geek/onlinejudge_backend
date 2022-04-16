@@ -17,6 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Access {
+    //权限表
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accessId;
