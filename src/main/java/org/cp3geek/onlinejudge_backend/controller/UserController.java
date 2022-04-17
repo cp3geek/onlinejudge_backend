@@ -15,7 +15,7 @@ public class UserController {
     UserService userService;
     @PostMapping(value="/userlogin")
     public User userLogin(String userName, String userPassword){
-       User user = userService.userLogin(userName,userPassword);
+       User user = userService.userLogin(userName);
         System.out.println(user.getUserName());
         return user;
     }

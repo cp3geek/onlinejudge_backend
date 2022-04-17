@@ -11,8 +11,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
     @Override
-    public User userLogin(String userName, String userPassword) {
-        User user=userRepository.findUserByUserNameAndUserPassword(userName,userPassword);
+    public User userLogin(String userName) {
+        User user=userRepository.findUserByUserName(userName);
         return user;
     }
 }
