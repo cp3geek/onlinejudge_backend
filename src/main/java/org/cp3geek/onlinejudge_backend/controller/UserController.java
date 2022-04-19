@@ -19,6 +19,11 @@ public class UserController {
         System.out.println(user.getUserName());
         return user;
     }
+
+    /**
+     * 测试登陆
+     * @return
+     */
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
