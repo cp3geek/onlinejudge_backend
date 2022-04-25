@@ -2,7 +2,7 @@ package org.cp3geek.onlinejudge_backend.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-
+//自定义返回类，返回固定格式
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {
     /**

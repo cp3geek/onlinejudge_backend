@@ -2,6 +2,7 @@ package org.cp3geek.onlinejudge_backend.controller;
 
 import org.cp3geek.onlinejudge_backend.entity.User;
 import org.cp3geek.onlinejudge_backend.service.UserService;
+import org.cp3geek.onlinejudge_backend.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,12 @@ public class UserController {
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
+    }
+
+
+    @PostMapping("/login")
+    public ResponseResult Login(User user){
+        return userService.Login(user);
     }
 
 }
