@@ -70,8 +70,8 @@ public class JwtUtil {
     /**
      * 创建token
      * @param id
-     * @param subject
-     * @param ttlMillis
+     * @param subject //想加密的数据
+     * @param ttlMillis //过期时间
      * @return
      */
     public static String createJWT(String id, String subject, Long ttlMillis) {
