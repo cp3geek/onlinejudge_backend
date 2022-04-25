@@ -34,4 +34,9 @@ public class UserController {
         return userService.Login(user);
     }
 
+    @RequestMapping("/logout")
+    public ResponseResult logout(){
+        return userService.logout();
+    }
+
 }

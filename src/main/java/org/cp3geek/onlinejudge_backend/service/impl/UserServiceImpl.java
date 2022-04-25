@@ -29,6 +29,12 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public ResponseResult logout() {
+        //
+        return null;
+    }
+
     @Autowired
     private RedisCache redisCache;
 
