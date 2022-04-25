@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +25,8 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private RedisCache redisCache;
     @Override
     public User userLogin(String userName) {
         User user=userRepository.findUserByUserName(userName);
@@ -31,12 +35,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseResult logout() {
-        //
-        return null;
+        //获取SecurityContextHolder中的用户id
+        UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken)SecurityContextHolder.getContext().getAuthentication();
+        LoginUser loginUser=(LoginUser)authentication.getPrincipal();
+        Long userId = loginUser.getUser().getUserId();
+        //删除redis中的值
+        redisCache.deleteObject("login:"+userId);
+        return new ResponseResult(200,"注销成功");
     }
 
-    @Autowired
-    private RedisCache redisCache;
 
     @Override
     public ResponseResult Login(User user) {
