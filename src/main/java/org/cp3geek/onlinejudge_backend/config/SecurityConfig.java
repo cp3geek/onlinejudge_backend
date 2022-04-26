@@ -1,6 +1,8 @@
 package org.cp3geek.onlinejudge_backend.config;
 
 import org.cp3geek.onlinejudge_backend.filter.JwtAuthenticationTokenFilter;
+import org.cp3geek.onlinejudge_backend.handler.AccessDeniedHandlerImpl;
+import org.cp3geek.onlinejudge_backend.handler.AuthenticationEntryPointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +30,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
+    @Autowired
+    private AuthenticationEntryPointImpl authenticationEntryPoint;
+    @Autowired
+    private AccessDeniedHandlerImpl accessDeniedHandler;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -42,7 +49,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").anonymous()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
+        //添加过滤器
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+
+        //配置异常处理器
+        http.exceptionHandling()
+                //配置认证失败处理器
+                .authenticationEntryPoint(authenticationEntryPoint)
+                //配置授权失败处理器
+                .accessDeniedHandler(accessDeniedHandler);
     }
 
     @Bean
