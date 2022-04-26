@@ -4,6 +4,7 @@ import org.cp3geek.onlinejudge_backend.entity.User;
 import org.cp3geek.onlinejudge_backend.service.UserService;
 import org.cp3geek.onlinejudge_backend.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ public class UserController {
      * 测试登陆
      * @return
      */
+    @PreAuthorize("hasAuthority('test')")
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
