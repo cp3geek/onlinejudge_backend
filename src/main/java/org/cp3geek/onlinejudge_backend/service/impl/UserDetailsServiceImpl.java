@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //查询用户信息
-        User user=userService.userLogin(username);
+        User user=userService.FindUser(username);
         if(Objects.isNull(user)){
             throw new RuntimeException("用户名不存在");
         }

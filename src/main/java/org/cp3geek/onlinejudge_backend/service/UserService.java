@@ -7,7 +7,7 @@ public interface UserService {
 
     ResponseResult Login(User user);
 
-    User userLogin(String username);
+    User FindUser(String username);
 
     ResponseResult logout();
 }
