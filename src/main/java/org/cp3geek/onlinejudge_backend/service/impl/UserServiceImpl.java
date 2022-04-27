@@ -27,11 +27,7 @@ public class UserServiceImpl implements UserService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private RedisCache redisCache;
-    @Override
-    public User userLogin(String userName) {
-        User user=userRepository.findUserByUserName(userName);
-        return user;
-    }
+
 
     @Override
     public ResponseResult logout() {
@@ -64,6 +60,11 @@ public class UserServiceImpl implements UserService {
         //把完整用户信息存入redis，userid作为key
         redisCache.setCacheObject("login:"+userid,loginUser);
         return new ResponseResult(200,"登陆成功",map);
+    }
+
+    @Override
+    public User userLogin(String username) {
+        return userRepository.findUserByUserName(username);
     }
 
 

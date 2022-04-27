@@ -15,22 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     UserService userService;
-    @PostMapping(value="/userlogin")
-    public User userLogin(String userName, String userPassword){
-        return null;
-    }
-
-    /**
-     * 测试登陆
-     * @return
-     */
-    @PreAuthorize("hasAuthority('test')")
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello";
-    }
 
 
+    //@PreAuthorize("hasAuthority('test')")
     @PostMapping("/login")
     public ResponseResult Login(User user){
         return userService.Login(user);
